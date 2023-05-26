@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 
@@ -13,8 +12,9 @@ function App() {
     await fetch(`https://jsonplaceholder.typicode.com/todos`)
         .then(response => response.json())
         .then(response => {
+          // response = null
           setRecords(response);
-            console.log(response);
+          console.log(response);
   })
         .catch(err => console.error(err));
 }
@@ -41,7 +41,6 @@ function App() {
         <tbody>
         {Object.keys(records).map((key) =>
                   <tr>
-                    {/* <th scope="row">{Number(key) + 1}</th> */}
                     <td>{records[key].id}</td>
                     <td>{records[key].title}</td>
                     <td>{String(records[key].completed)}</td>
